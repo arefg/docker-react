@@ -1,0 +1,10 @@
+# Anytime that we are making use of Docker, we have to have super user's permissions
+sudo: requierd
+# We are telling Travis that we need Docker installed
+services:
+  - docker
+# Things that we want to do before either running our project or doing our tests
+before_install:
+# We want to build our image and tag it with a name so we can use the tag instead of the randomly generate ID to reference the image in next steps
+# The tag assigned here is only going to be used inside this yaml file and we can name it anything (For example "myimage")
+  - docker build -t arefg/docker-react -f Dockerfile.dev .
